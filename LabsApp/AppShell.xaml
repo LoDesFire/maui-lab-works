@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell
+    x:Class="LabsApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:LabsApp.Pages"
+    Title="LabsApp">
+
+    <FlyoutItem Title="Calculator" FlyoutIcon="calculator.svg" Route="CalculatorPage" >
+        <ShellContent
+            Title="Calculator"
+            ContentTemplate="{DataTemplate pages:Calculator}"/>
+    </FlyoutItem>
+    
+    <FlyoutItem Title="ProgressAction" Route="MainPage" >
+        <ShellContent
+            Title="Progress bar"
+            ContentTemplate="{DataTemplate pages:Progress}"/>
+    </FlyoutItem>
+    
+</Shell>

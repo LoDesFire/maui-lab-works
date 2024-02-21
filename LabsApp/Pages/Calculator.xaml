@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime"
+             x:Class="LabsApp.Pages.Calculator">
+    <Grid ColumnSpacing="5" RowSpacing="5" RowDefinitions="2*, *, *, *, *, *, *, *" ColumnDefinitions="*, *, *, *"
+          Margin="10">
+        <Label x:Name="CurrentCalculation"
+               FontSize="22"
+               LineBreakMode="NoWrap"
+               Grid.ColumnSpan="4"
+               Text=""
+               TextColor="{StaticResource Gray400}"
+               HorizontalTextAlignment="End"
+               VerticalTextAlignment="Center"
+               Grid.Row="0" />
+
+        <ScrollView Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalOptions="End">
+            <Label x:Name="ResultText"
+                   FontSize="64" FontAttributes="Bold" Text="0"
+                   HorizontalTextAlignment="End"
+                   VerticalTextAlignment="End"
+                   TextColor="{StaticResource Black}"
+                   LineBreakMode="NoWrap" />
+        </ScrollView>
+
+        <Grid Grid.ColumnSpan="4" Grid.Row="1" ColumnDefinitions="*, *, *, *, *, *" HorizontalOptions="Fill">
+            <Button Text="2^x"
+                    Grid.Column="0"
+                    Clicked="OnSingleActionClicked" />
+            <Button Text="MC"
+                    Grid.Column="1"
+                    Clicked="OnMemoryActionClicked"
+                    BackgroundColor="Transparent" BorderColor="Transparent" />
+            <Button Text="MR"
+                    Grid.Column="2"
+                    Clicked="OnMemoryActionClicked"
+                    BackgroundColor="Transparent" BorderColor="Transparent" />
+            <Button Text="M+"
+                    Grid.Column="3"
+                    Clicked="OnMemoryActionClicked"
+                    BackgroundColor="Transparent" BorderColor="Transparent" />
+            <Button Text="M-"
+                    Grid.Column="4"
+                    Clicked="OnMemoryActionClicked"
+                    BackgroundColor="Transparent" BorderColor="Transparent" />
+            <Button Text="MS"
+                    Grid.Column="5"
+                    Clicked="OnMemoryActionClicked"
+                    BackgroundColor="Transparent" BorderColor="Transparent" />
+        </Grid>
+        <Button Text="%" Grid.Column="0" Grid.Row="2"
+                Clicked="OnSingleActionClicked" />
+        <Button Text="CE" Grid.Column="1" Grid.Row="2"
+                Clicked="OnClearActionClicked" />
+        <Button Text="C" Grid.Column="2" Grid.Row="2"
+                Clicked="OnClearActionClicked" />
+        <Frame Grid.Column="3" Grid.Row="2" BorderColor="#e8e8e8"
+               BackgroundColor="{StaticResource Secondary}">
+            <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <Image Source="backspace.png" HeightRequest="24" />
+            </VerticalStackLayout>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnDeleteClicked" />
+            </Frame.GestureRecognizers>
+        </Frame>
+        <Button Text="1/x" Grid.Column="0" Grid.Row="3"
+                Clicked="OnSingleActionClicked" />
+        <Button Text="x²" Grid.Column="1" Grid.Row="3"
+                Clicked="OnSingleActionClicked" />
+        <Button Text="√x" Grid.Column="2" Grid.Row="3"
+                Clicked="OnSingleActionClicked" />
+
+        <Button Text="÷" Grid.Column="3" Grid.Row="3"
+                Clicked="OnDoubleActionClicked" />
+
+        <Button Text="7" Grid.Column="0" Grid.Row="4" BackgroundColor="#ffffff"
+                Clicked="OnNumberClicked" />
+        <Button Text="8" Grid.Column="1" Grid.Row="4" BackgroundColor="#ffffff"
+                Clicked="OnNumberClicked" />
+        <Button Text="9" Grid.Column="2" Grid.Row="4" BackgroundColor="#ffffff"
+                Clicked="OnNumberClicked" />
+        <Button Text="×" Grid.Column="3" Grid.Row="4"
+                Clicked="OnDoubleActionClicked" />
+
+        <Button Text="4" Grid.Column="0" Grid.Row="5" BackgroundColor="#ffffff"
+                Clicked="OnNumberClicked" />
+        <Button Text="5" Grid.Column="1" Grid.Row="5" BackgroundColor="#ffffff"
+                Clicked="OnNumberClicked" />
+        <Button Text="6" Grid.Column="2" Grid.Row="5" BackgroundColor="#ffffff"
+                Clicked="OnNumberClicked" />
+        <Button Text="-" Grid.Column="3" Grid.Row="5"
+                Clicked="OnDoubleActionClicked" />
+
+        <Button Text="1" Grid.Column="0" Grid.Row="6" BackgroundColor="#ffffff"
+                Clicked="OnNumberClicked" />
+        <Button Text="2" Grid.Column="1" Grid.Row="6" BackgroundColor="#ffffff"
+                Clicked="OnNumberClicked" />
+        <Button Text="3" Grid.Column="2" Grid.Row="6" BackgroundColor="#ffffff"
+                Clicked="OnNumberClicked" />
+        <Button Text="+" Grid.Column="3" Grid.Row="6"
+                Clicked="OnDoubleActionClicked" />
+
+        <Button Text="+/-" Grid.Column="0" Grid.Row="7" BackgroundColor="#ffffff"
+                Clicked="OnSingleActionClicked" />
+
+        <Button Text="0" Grid.Column="1" Grid.Row="7" BackgroundColor="#ffffff"
+                Clicked="OnNumberClicked" />
+
+        <Button x:Name="NumberDecimalSeparator" Text="." Grid.Column="2" Grid.Row="7" BackgroundColor="#ffffff"
+                Clicked="OnCommaClicked" />
+        <Button Text="=" Grid.Column="3" Grid.Row="7" BackgroundColor="#47606c" TextColor="#ffffff"
+                Clicked="OnEqualClicked" />
+    </Grid>
+</ContentPage>
