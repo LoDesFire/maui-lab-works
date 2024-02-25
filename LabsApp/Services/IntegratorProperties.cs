@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace LabsApp.Services;
 
-public class IntegralProgressProperties: INotifyPropertyChanged
+public class IntegratorProperties: INotifyPropertyChanged
 {
     private double _progress;
     private string _status = "Welcome to .NET MAUI!";
@@ -19,8 +19,7 @@ public class IntegralProgressProperties: INotifyPropertyChanged
         get => _status;
         set => SetField(ref _status, value);
     }
-
-
+    
     public event PropertyChangedEventHandler? PropertyChanged;
 
     private void SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)

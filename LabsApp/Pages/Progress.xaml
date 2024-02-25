@@ -6,7 +6,7 @@
              x:Class="LabsApp.Pages.Progress">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <local:IntegralProgress x:Key="IntegralProgressKey"/>
+            <local:Integrator x:Key="IntegralProgressKey"/>
             <converter:DoublePercentToStringConverter x:Key="DoublePercentToStringConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>

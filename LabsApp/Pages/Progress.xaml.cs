@@ -23,11 +23,11 @@ public partial class Progress : ContentPage
         }
         
         _cancellationTokenSource = new CancellationTokenSource();
-        var res = Resources["IntegralProgressKey"] as IntegralProgress;
+        var integrator = Resources["IntegralProgressKey"] as Integrator;
         try
         {
-            if (res != null)
-                await res.Sin(_cancellationTokenSource.Token);
+            if (integrator != null)
+                await integrator.Sin(_cancellationTokenSource.Token);
         }
         catch (OperationCanceledException)  { }
         finally

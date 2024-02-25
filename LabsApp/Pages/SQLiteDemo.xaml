@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="LabsApp.Pages.SqLiteDemo">
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior
+            EventName="Loaded"
+            Command="{Binding LoadPickerCommand}" />
+    </ContentPage.Behaviors>
+    <StackLayout>
+        <Picker x:Name="AuthorPicker" Title="Авторы произведений"
+                ItemDisplayBinding="{Binding FullName}"
+                ItemsSource="{Binding Authors}">
+
+            <Picker.Behaviors>
+                <toolkit:EventToCommandBehavior
+                    EventName="SelectedIndexChanged"
+                    Command="{Binding AuthorsBooksCommand}"
+                    CommandParameter="{Binding Source={x:Reference AuthorPicker}, Path=SelectedItem}" />
+            </Picker.Behaviors>
+        </Picker>
+
+        <CollectionView VerticalOptions="FillAndExpand"
+                        ItemsSource="{Binding Books}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        BackgroundColor="{StaticResource Secondary}" Margin="5"
+                        Padding="5">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20" />
+                        </Border.StrokeShape>
+                        <Grid Margin="10" RowDefinitions="Auto,*,*,Auto">
+                            <Label HorizontalTextAlignment="Center"
+                                   FontSize="20"
+                                   Text="{Binding Name}"
+                                   Grid.Row="0" />
+                            <BoxView HeightRequest="2"
+                                     Color="{StaticResource SecondaryDarkText}"
+                                     Margin="10"
+                                     Grid.Row="1" />
+                            <Label HorizontalTextAlignment="Start"
+                                   FontSize="12"
+                                   Text="{Binding PagesCount, StringFormat='Количество страниц: {0}'}"
+                                   Grid.Row="2" />
+                            <Label HorizontalTextAlignment="Start"
+                                   FontSize="12"
+                                   LineBreakMode="WordWrap"
+                                   Text="{Binding Description, StringFormat='Описание: {0}'}"
+                                   Grid.Row="3" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

@@ -1,5 +1,4 @@
 ﻿using System.Globalization;
-
 namespace LabsApp.Pages;
 
 public partial class Calculator : ContentPage

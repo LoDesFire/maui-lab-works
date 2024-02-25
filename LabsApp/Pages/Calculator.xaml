@@ -2,7 +2,6 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:system="clr-namespace:System;assembly=System.Runtime"
              x:Class="LabsApp.Pages.Calculator">
     <Grid ColumnSpacing="5" RowSpacing="5" RowDefinitions="2*, *, *, *, *, *, *, *" ColumnDefinitions="*, *, *, *"
           Margin="10">

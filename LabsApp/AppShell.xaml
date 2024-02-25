@@ -12,10 +12,16 @@
             ContentTemplate="{DataTemplate pages:Calculator}"/>
     </FlyoutItem>
     
-    <FlyoutItem Title="ProgressAction" Route="MainPage" >
+    <FlyoutItem Title="ProgressAction" Route="ProgressPage" >
         <ShellContent
             Title="Progress bar"
             ContentTemplate="{DataTemplate pages:Progress}"/>
+    </FlyoutItem>
+    
+    <FlyoutItem Title="SQLiteDemo" Route="SQLiteDemoPage" >
+        <ShellContent
+            Title="SQLiteDemo"
+            ContentTemplate="{DataTemplate pages:SqLiteDemo}"/>
     </FlyoutItem>
     
 </Shell>

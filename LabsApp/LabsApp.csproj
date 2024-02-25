@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net8.0-maccatalyst</TargetFramework>
-        <RuntimeIdentifiers>maccatalyst-arm64</RuntimeIdentifiers>
-<!--        <TargetFramework>net8.0-android</TargetFramework>-->
-<!--        <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>-->
+<!--        <TargetFramework>net8.0-maccatalyst</TargetFramework>-->
+<!--        <RuntimeIdentifiers>maccatalyst-arm64</RuntimeIdentifiers>-->
+        <TargetFramework>net8.0-android</TargetFramework>
+        <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
         <!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
         <!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->
         
@@ -59,13 +59,15 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="CommunityToolkit.Maui" Version="7.0.1" />
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
         <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+        <PackageReference Include="Microsoft.Maui.Controls.Build.Tasks" Version="8.0.7" />
         <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <AdditionalFiles Include="Pages\ProgressPage.xaml" />
+        <PackageReference Include="Microsoft.Maui.Controls.Core" Version="8.0.7" />
+        <PackageReference Include="sqlite-net-pcl" Version="1.9.141-beta" />
+        <PackageReference Include="sqlite-net-sqlcipher" Version="1.9.141-beta" />
     </ItemGroup>
 
     <ItemGroup>
