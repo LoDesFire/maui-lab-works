@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:pages="clr-namespace:LabsApp.Pages"
+             x:DataType="pages:CurrencyConvertorViewModel"
+             x:Class="LabsApp.Pages.CurrencyConvertor">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label Text="Курсы валют НБРБ" FontSize="20" HorizontalOptions="Center" Margin="5" />
+            <DatePicker x:Name="DatePicker" HorizontalOptions="Center" FontSize="20" >
+                <DatePicker.Behaviors>
+                    <toolkit:EventToCommandBehavior
+                        EventName="DateSelected"
+                        Command="{Binding LoadCurrenciesCommand}"
+                        CommandParameter="{Binding Source={x:Reference DatePicker}, Path=Date}" />
+                    <toolkit:EventToCommandBehavior
+                        EventName="Loaded"
+                        Command="{Binding LoadCurrenciesCommand}"
+                        CommandParameter="{Binding Source={x:Reference DatePicker}, Path=Date}" />
+                </DatePicker.Behaviors>
+            </DatePicker>
+            <CollectionView
+                ItemsSource="{Binding Rates}"
+                Margin="20">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal" Margin="2">
+                            <Label FontSize="15" Text="{Binding Cur_Name, StringFormat='{0} – '}" />
+                            <Label FontSize="15" Text="{Binding Cur_OfficialRate, StringFormat=' {0}'}" />
+                            <Label FontSize="15" Text="{Binding Cur_Abbreviation, StringFormat=' {0}/BYN'}" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Grid ColumnDefinitions="2*, *, 2*, 2*, *">
+                <Entry x:Name="BynEntry"
+                       Placeholder="BYN"
+                       Text="{Binding BynValue}"
+                       Grid.Column="0">
+                    <Entry.Behaviors>
+                        <toolkit:EventToCommandBehavior
+                            EventName="Completed"
+                            Command="{Binding BynConvertCommand}" />
+                    </Entry.Behaviors>
+                </Entry>
+                <Picker Title="BYN" IsEnabled="False"
+                        Grid.Column="1" />
+                <Button Margin="10" IsEnabled="False" HeightRequest="8"
+                        Grid.Column="2" />
+                <Entry x:Name="CurrencyEntry"
+                       Placeholder="Value"
+                       Grid.Column="3"
+                       Text="{Binding CurrencyValue}">
+                    <Entry.Behaviors>
+                        <toolkit:EventToCommandBehavior
+                            EventName="Completed"
+                            Command="{Binding CurrencyConvertCommand}" />
+                    </Entry.Behaviors>
+                </Entry>
+                <Picker Title="Currency"
+                        Grid.Column="4"
+                        ItemsSource="{Binding Currencies}"
+                        SelectedItem="{Binding ChosenCurrency}">
+                    <Picker.Behaviors>
+                        <toolkit:EventToCommandBehavior
+                            EventName="SelectedIndexChanged" 
+                            Command="{Binding CalculateCurrenciesCommand}"/>
+                    </Picker.Behaviors>
+                </Picker>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

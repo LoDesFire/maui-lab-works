@@ -24,4 +24,10 @@
             ContentTemplate="{DataTemplate pages:SqLiteDemo}"/>
     </FlyoutItem>
     
+    <FlyoutItem Title="Currency converter" Route="Converter" >
+        <ShellContent
+            Title="Currency converter"
+            ContentTemplate="{DataTemplate pages:CurrencyConvertor}"/>
+    </FlyoutItem>
+    
 </Shell>
